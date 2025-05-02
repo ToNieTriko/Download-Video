@@ -22,30 +22,20 @@ public class Main {
             System.out.println("1- 2160p \n2- 1440p \n3- 1080p \n4- 720p \n5- 480p \n6- 360p");
             num = en.nextInt();
         }
-        if (num == 1){
-            res = "2160";
-        }
-        else if (num ==2){
-            res = "1440";
-        }
-        else if(num == 3){
-            res = "1080";
-        }
-        else if(num == 4){
-            res = "720";
-        }
-        else if(num == 5){
-            res = "480";
-        }
-        else if(num == 6){
-            res = "360";
+        switch (num){
+            case 1: res = "2160"; break;
+            case 2: res = "1440"; break;
+            case 3: res = "1080"; break;
+            case 4: res = "720"; break;
+            case 5: res = "480"; break;
+            case 6: res = "360"; break;
         }
         int aux = -1;
         while (aux < 0 || aux >1) {
-            System.out.println("1- Mac \n 2- Win");
+            System.out.println("1- Mac \n2- Win");
             aux = en.nextInt();
         }
-        if (aux ==0) {
+        if (aux ==1) {
             String Command = String.format("\"%s\" -P \"%s\" -f \"best[height<=%s][ext=mp4]\" \"%s\"", path, directory, res, video);
 
             ProcessBuilder pro = new ProcessBuilder("bash", "-c", Command);
@@ -54,7 +44,7 @@ public class Main {
             processo.waitFor();
             System.out.println("Download concluido");
         }
-        else if (aux ==1){
+        else if (aux ==2){
             path = "C:\\yt-dlp\\yt-dlp.exe";
             String Command = String.format("\"%s\" -P \"%s\" -f \"best[height<=%s][ext=mp4]\" \"%s\"", path, directory, res, video);
 
